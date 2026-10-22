@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#123d80">
+<title>SKILL BHARAT</title>
+
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f2f5fa;color:#17243b}
+header{background:#123d80;color:white;padding:16px}
+.head{max-width:1100px;margin:auto;display:flex;align-items:center;gap:12px}
+.logo{width:48px;height:48px;background:#f5b82e;color:#123d80;border-radius:12px;display:grid;place-items:center;font-size:28px;font-weight:bold}
+.brand{font-size:23px;font-weight:bold}
+.tagline{font-size:12px;margin-top:4px}
+nav{display:flex;overflow-x:auto;gap:6px;padding:10px;background:white;position:sticky;top:0;z-index:5}
+nav button{border:0;padding:11px;background:#eaf0fa;color:#123d80;border-radius:8px;white-space:nowrap;font-weight:bold}
+nav button.active{background:#123d80;color:white}
+main{max-width:1050px;margin:auto;padding:15px}
+.page{display:none}.page.active{display:block}
+.hero{padding:25px;background:linear-gradient(130deg,#123d80,#2584c7);color:white;border-radius:15px;margin-bottom:16px}
+.hero h1{font-size:28px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:13px}
+.card{background:white;padding:17px;border:1px solid #dce4ef;border-radius:13px;margin-bottom:13px}
+.symbol{font-size:30px}
+.muted{color:#64748b;line-height:1.6}
+.price{color:#087b46;font-weight:bold}
+.badge{display:inline-block;background:#fff0c8;color:#72500b;padding:6px 9px;border-radius:7px;font-size:13px}
+button,.button{cursor:pointer}
+.btn{display:inline-block;border:0;border-radius:8px;padding:11px 15px;margin:5px 3px 5px 0;background:#f5b82e;color:#17243b;font-weight:bold;text-decoration:none}
+.btn-blue{background:#123d80;color:white}
+input,select,textarea{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:8px;font-size:15px;background:white}
+label{display:block;margin:12px 0 6px;font-weight:bold}
+textarea{min-height:90px}
+.notice{background:#fff6dc;border:1px solid #efd38a;padding:12px;border-radius:9px;line-height:1.6;margin:12px 0}
+footer{background:#102d5a;color:white;text-align:center;padding:22px;line-height:1.8;margin-top:20px}
+.small{font-size:12px}
+.hidden{display:none}
+a{color:#1769aa}
+@media(max-width:500px){main{padding:10px}.hero h1{font-size:23px}.brand{font-size:20px}}
+</style>
+</head>
+
+<body>
+<header>
+ <div class="head">
+  <div class="logo">S</div>
+  <div>
+   <div class="brand">SKILL BHARAT</div>
+   <div class="tagline">LEARN • PRACTICE • BUILD YOUR FUTURE</div>
+  </div>
+ </div>
+</header>
+
+<nav>
+ <button class="active" onclick="showPage('home',this)">হোম</button>
+ <button onclick="showPage('courses',this)">কোর্স</button>
+ <button onclick="showPage('admission',this)">ভর্তি</button>
+ <button onclick="showPage('community',this)">কমিউনিটি</button>
+ <button onclick="showPage('profile',this)">প্রোফাইল</button>
+ <button onclick="showPage('certificate',this)">সার্টিফিকেট</button>
+ <button onclick="showPage('login',this)">লগইন</button>
+ <button onclick="showPage('admin',this)">অ্যাডমিন</button>
+ <button onclick="showPage('support',this)">সাহায্য</button>
+</nav>
+
+<main>
+
+<section id="home" class="page active">
+ <div class="hero">
+  <h1>স্বাগতম SKILL BHARAT-এ</h1>
+  <p>দক্ষতা শিখুন, নিজের ভবিষ্যৎ গড়ুন। কোর্স, ভর্তি, শিক্ষার্থী কমিউনিটি এবং সার্টিফিকেট সংক্রান্ত তথ্য এক জায়গায়।</p>
+  <p><strong>কোর্স ফি ₹০ | ভর্তি ফি ₹০ | সার্টিফিকেট ফি ₹০</strong></p>
+  <button class="btn" onclick="showPage('courses')">কোর্স দেখুন</button>
+  <button class="btn" onclick="showPage('admission')">ভর্তির আবেদন</button>
+  <button class="btn" onclick="showPage('support')">Help & Support</button>
+ </div>
+
+ <div class="grid">
+  <div class="card"><div class="symbol">⚡</div><h3>Electrical Training</h3><p class="muted">ইলেকট্রিক্যাল কাজ ও নিরাপত্তার প্রশিক্ষণের তথ্য।</p></div>
+  <div class="card"><div class="symbol">📚</div><h3>কোর্স ট্র্যাকিং</h3><p class="muted">কোর্সের মেয়াদ এবং ক্যালেন্ডার অনুযায়ী অগ্রগতি হিসাব করুন।</p></div>
+  <div class="card"><div class="symbol">🎓</div><h3>ফ্রি সার্টিফিকেট</h3><p class="muted">প্রতিষ্ঠানের প্রকৃত রেকর্ডের ভিত্তিতে সার্টিফিকেটের ব্যবস্থা করা যাবে।</p></div>
+  <div class="card"><div class="symbol">📧</div><h3>শিক্ষার্থী সহায়তা</h3><p class="muted">যেকোনো সমস্যা হলে Admin Email-এ যোগাযোগ করুন।</p><button class="btn btn-blue" onclick="showPage('support')">যোগাযোগ</button></div>
+ </div>
+
+ <div class="notice">এই ওয়েবসাইটের কোর্স, ভর্তি ও সার্টিফিকেটের নির্ধারিত ফি ₹০। সরকারি স্বীকৃতি বা সরকারি সার্টিফিকেটের দাবি করা হচ্ছে না।</div>
+</section>
+
+<section id="courses" class="page">
+ <h2>আমাদের কোর্স</h2>
+ <p class="price">সব কোর্সের ফি: সম্পূর্ণ ফ্রি</p>
+ <div class="grid">
+  <div class="card"><div class="symbol">⚡</div><h3>Electrical Basics</h3><p class="muted">ইলেকট্রিক্যাল বেসিক ও নিরাপত্তার ধারণা।</p><span class="badge">১৮০ দিন</span><p class="price">কোর্স ফি: ₹০</p><button class="btn btn-blue" onclick="selectCourse('Electrical Basics')">ভর্তি নির্বাচন</button></div>
+  <div class="card"><div class="symbol">🔌</div><h3>Electrician Training</h3><p class="muted">ওয়্যারিং, টুলস ও সার্কিটের পরিচিতি।</p><span class="badge">৩৬৫ দিন</span><p class="price">কোর্স ফি: ₹০</p><button class="btn btn-blue" onclick="selectCourse('Electrician Training')">ভর্তি নির্বাচন</button></div>
+  <div class="card"><div class="symbol">🛠️</div><h3>Electrical Technician</h3><p class="muted">ইলেকট্রিক্যাল মেইনটেন্যান্সের পরিচিতি।</p><span class="badge">৭৩০ দিন</span><p class="price">কোর্স ফি: ₹০</p><button class="btn btn-blue" onclick="selectCourse('Electrical Technician')">ভর্তি নির্বাচন</button></div>
+  <div class="card"><div class="symbol">🏠</div><h3>Domestic Wiring</h3><p class="muted">বাড়ির ওয়্যারিং এবং সার্কিটের ধারণা।</p><span class="badge">১৮০ দিন</span><p class="price">কোর্স ফি: ₹০</p><button class="btn btn-blue" onclick="selectCourse('Domestic Wiring')">ভর্তি নির্বাচন</button></div>
+  <div class="card"><div class="symbol">⚙️</div><h3>Motor & Control</h3><p class="muted">মোটর ও কন্ট্রোল সার্কিটের পরিচিতি।</p><span class="badge">১৮০ দিন</span><p class="price">কোর্স ফি: ₹০</p><button class="btn btn-blue" onclick="selectCourse('Motor & Control')">ভর্তি নির্বাচন</button></div>
+  <div class="card"><div class="symbol">🏭</div><h3>Industrial Electrical</h3><p class="muted">ইন্ডাস্ট্রিয়াল ইলেকট্রিক্যালের পরিচিতি।</p><span class="badge">৩৬৫ দিন</span><p class="price">কোর্স ফি: ₹০</p><button class="btn btn-blue" onclick="selectCourse('Industrial Electrical')">ভর্তি নির্বাচন</button></div>
+ </div>
+ <p class="muted small">কোর্সের তালিকা প্রশিক্ষণের প্রস্তাবিত বিষয় দেখায়; এটি নিজে থেকে সরকারি অনুমোদন প্রমাণ করে না।</p>
+</section>
+
+<section id="admission" class="page">
+ <h2>ফ্রি ভর্তি আবেদন</h2>
+ <div class="card">
+  <p class="price">ভর্তি ফি: ₹০ — সম্পূর্ণ বিনামূল্যে</p>
+  <form id="admissionForm">
+   <label>শিক্ষার্থীর নাম</label><input id="studentName" required>
+   <label>ইমেইল ঠিকানা</label><input id="studentEmail" type="email" required>
+   <label>কোর্স নির্বাচন</label>
+   <select id="courseChoice" required>
+    <option value="">কোর্স বেছে নিন</option>
+    <option>Electrical Basics</option>
+    <option>Electrician Training</option>
+    <option>Electrical Technician</option>
+    <option>Domestic Wiring</option>
+    <option>Motor & Control</option>
+    <option>Industrial Electrical</option>
+   </select>
+   <label>প্রস্তাবিত শুরুর তারিখ</label><input id="startDate" type="date">
+   <label>আপনার বার্তা</label><textarea id="admissionMessage"></textarea>
+   <button class="btn btn-blue" type="submit">আবেদনের প্রিভিউ</button>
+  </form>
+  <div id="admissionResult" class="notice hidden"></div>
+  <p class="muted small">এটি শুধু প্রিভিউ। আবেদন অনলাইনে জমা বা সংরক্ষণ হয় না। বাস্তব ভর্তি চালু করতে সার্ভার লাগবে।</p>
+ </div>
+</section>
+
+<section id="community" class="page">
+ <h2>শিক্ষার্থী কমিউনিটি</h2>
+ <div class="card">
+  <label>আপনার পোস্ট লিখুন</label>
+  <textarea id="postText" placeholder="আপনার প্রশ্ন বা শেখার অভিজ্ঞতা লিখুন"></textarea>
+  <button class="btn btn-blue" onclick="addPost()">পোস্ট করুন</button>
+  <p class="muted small">এই ডেমোতে পোস্ট শুধু এই পেজে দেখা যায়। অন্য শিক্ষার্থীর কাছে পৌঁছায় না।</p>
+ </div>
+ <div id="posts"><div class="card"><h3>SKILL BHARAT Community</h3><p>সবাই নিরাপদে শিখুন এবং একে অপরকে সাহায্য করুন!</p></div></div>
+</section>
+
+<section id="profile" class="page">
+ <h2>শিক্ষার্থী প্রোফাইল</h2>
+ <div class="card">
+  <div class="symbol">👤</div>
+  <h3 id="profileName">শিক্ষার্থী</h3>
+  <p id="profileEmail" class="muted">ইমেইল: দেওয়া হয়নি</p>
+  <p class="muted">বাস্তব শিক্ষার্থী অ্যাকাউন্ট যুক্ত হলে এখানে ব্যক্তিগত তথ্য দেখা যাবে।</p>
+ </div>
+ <div class="card">
+  <h3>কোর্সের অগ্রগতি হিসাব</h3>
+  <label>কোর্সের মেয়াদ</label>
+  <select id="progressCourse">
+   <option value="180">১৮০ দিন</option>
+   <option value="365">৩৬৫ দিন</option>
+   <option value="730">৭৩০ দিন</option>
+  </select>
+  <label>প্রশিক্ষণ শুরুর তারিখ</label><input type="date" id="progressStart">
+  <button class="btn btn-blue" onclick="calculateProgress()">হিসাব করুন</button>
+  <div id="progressResult" class="notice hidden"></div>
+  <p class="muted small">এই হিসাব ক্যালেন্ডারের দিনের ওপর ভিত্তি করে; এটি উপস্থিতি বা কোর্স সম্পন্ন করার প্রমাণ নয়।</p>
+ </div>
+</section>
+
+<section id="certificate" class="page">
+ <h2>সার্টিফিকেট যাচাই</h2>
+ <div class="card">
+  <p class="price">সার্টিফিকেট ফি: ₹০</p>
+  <label>সার্টিফিকেট নম্বর</label>
+  <input id="certificateNumber" placeholder="সার্টিফিকেট নম্বর লিখুন">
+  <button class="btn btn-blue" onclick="checkCertificate()">যাচাই করুন</button>
+  <div id="certificateResult" class="notice hidden"></div>
+ </div>
+ <div class="notice">এখনও বাস্তব সার্টিফিকেট ডেটাবেস যুক্ত নেই। তাই এই ডেমো আসল সার্টিফিকেট যাচাই করতে পারে না এবং কোনো সার্টিফিকেটকে Verified বলে নিশ্চিত করে না।</div>
+</section>
+
+<section id="login" class="page">
+ <h2>ইমেইল লগইন</h2>
+ <div class="card">
+  <label>ইমেইল</label><input id="loginEmail" type="email" placeholder="name@example.com">
+  <label>পাসওয়ার্ড</label><input id="loginPassword" type="password" placeholder="পাসওয়ার্ড">
+  <button class="btn btn-blue" onclick="demoLogin()">ডেমো চালান</button>
+  <div id="loginResult" class="notice hidden"></div>
+  <p class="muted small">এটি বাস্তব লগইন নয়। কোনো অ্যাকাউন্ট তৈরি হয় না। পাসওয়ার্ড কোথাও পাঠানো বা সংরক্ষণ করা হয় না।</p>
+ </div>
+</section>
+
+<section id="admin" class="page">
+ <h2>অ্যাডমিন বিভাগ</h2>
+ <div class="notice">এই পেজটি এখন শুধু তথ্যের জন্য। এটি সুরক্ষিত অ্যাডমিন প্যানেল নয়।</div>
+ <div class="card">
+  <h3>Admin Contact</h3>
+  <p>ইমেইল: <strong>bharatskill48@gmail.com</strong></p>
+  <a class="btn btn-blue" href="mailto:bharatskill48@gmail.com?subject=SKILL%20BHARAT%20Admin">Admin-কে ইমেইল করুন</a>
+  <p class="muted">বাস্তব অ্যাডমিন প্যানেলের জন্য নিরাপদ লগইন ও সার্ভার-সাইড অনুমতি দরকার।</p>
+ </div>
+</section>
+
+<section id="support" class="page">
+ <h2>Help & Support</h2>
+ <div class="card">
+  <div class="symbol">📧</div>
+  <h3>SKILL BHARAT Student Support</h3>
+  <p class="muted">কোর্স, ভর্তি, সার্টিফিকেট, অ্যাকাউন্ট বা সোশ্যাল সাইটে সমস্যা হলে আমাদের ইমেইল করুন।</p>
+  <p><strong>Admin Email:</strong><br><span id="supportEmail">bharatskill48@gmail.com</span></p>
+  <a class="btn btn-blue" href="mailto:bharatskill48@gmail.com?subject=SKILL%20BHARAT%20Support&body=Name%3A%0ACourse%3A%0AProblem%3A%0A">Admin-কে ইমেইল করুন</a>
+  <button class="btn" onclick="copyEmail()">ইমেইল কপি করুন</button>
+  <div id="copyResult" class="muted small"></div>
+ </div>
+ <div class="grid">
+  <div class="card"><h3>📚 কোর্স সমস্যা</h3><p class="muted">কোর্সের বিষয় বা মেয়াদ সম্পর্কে প্রশ্ন।</p></div>
+  <div class="card"><h3>📝 ভর্তি সমস্যা</h3><p class="muted">ভর্তি ফর্ম পূরণ বা আবেদন সম্পর্কে সাহায্য।</p></div>
+  <div class="card"><h3>🎓 সার্টিফিকেট সমস্যা</h3><p class="muted">সার্টিফিকেট সংক্রান্ত প্রশ্ন বা সংশোধনের অনুরোধ।</p></div>
+  <div class="card"><h3>👤 অ্যাকাউন্ট সমস্যা</h3><p class="muted">লগইন বা প্রোফাইলের সাহায্য।</p></div>
+ </div>
+ <div class="notice">ইমেইল বাটনে চাপ দিলে আপনার ডিভাইসের ইমেইল অ্যাপ খুলতে পারে। মেসেজ পাঠাতে আপনাকে নিজে Send চাপতে হবে।</div>
+</section>
+
+</main>
+
+<footer>
+ <strong>SKILL BHARAT</strong><br>
+ Learn • Practice • Build Your Future<br>
+ <a href="mailto:bharatskill48@gmail.com" style="color:#fff">bharatskill48@gmail.com</a><br>
+ <span class="small">কোর্স, ভর্তি ও সার্টিফিকেট ফি: ₹০</span><br>
+ <span class="small">ওয়েবসাইট ডেমো — সরকারি অনুমোদনের দাবি নয়।</span>
+</footer>
+
+<script>
+function showPage(id,button){
+ document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active')});
+ var target=document.getElementById(id);
+ if(target) target.classList.add('active');
+ document.querySelectorAll('nav button').forEach(function(b){b.classList.remove('active')});
+ if(button) button.classList.add('active');
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function selectCourse(name){
+ document.getElementById('courseChoice').value=name;
+ showPage('admission');
+}
+
+document.getElementById('admissionForm').addEventListener('submit',function(e){
+ e.preventDefault();
+ var name=document.getElementById('studentName').value.trim();
+ var email=document.getElementById('studentEmail').value.trim();
+ var course=document.getElementById('courseChoice').value;
+ var date=document.getElementById('startDate').value;
+ var msg=document.getElementById('admissionMessage').value.trim();
+ var result=document.getElementById('admissionResult');
+ result.classList.remove('hidden');
+ result.textContent='আবেদন প্রিভিউ: '+name+' | ইমেইল: '+email+' | কোর্স: '+course+' | ফি: ₹০'+(date?' | শুরুর তারিখ: '+date:'')+(msg?' | বার্তা: '+msg:'')+'. আবেদনটি অনলাইনে জমা হয়নি।';
+ document.getElementById('profileName').textContent=name;
+ document.getElementById('profileEmail').textContent='ইমেইল: '+email;
+});
+
+function addPost(){
+ var input=document.getElementById('postText');
+ var text=input.value.trim();
+ if(!text){alert('আগে পোস্ট লিখুন।');return;}
+ var card=document.createElement('div');
+ card.className='card';
+ var title=document.createElement('h3');
+ title.textContent='আপনার পোস্ট';
+ var paragraph=document.createElement('p');
+ paragraph.textContent=text;
+ card.appendChild(title);
+ card.appendChild(paragraph);
+ document.getElementById('posts').prepend(card);
+ input.value='';
+}
+
+function calculateProgress(){
+ var duration=Number(document.getElementById('progressCourse').value);
+ var value=document.getElementById('progressStart').value;
+ var result=document.getElementById('progressResult');
+ result.classList.remove('hidden');
+ if(!value){result.textContent='প্রশিক্ষণ শুরুর তারিখ নির্বাচন করুন।';return;}
+ var start=new Date(value+'T00:00:00');
+ var today=new Date();
+ today.setHours(0,0,0,0);
+ if(start>today){result.textContent='শুরুর তারিখ এখনও আসেনি।';return;}
+ var elapsed=Math.floor((today-start)/86400000)+1;
+ var completed=Math.min(elapsed,duration);
+ var remaining=Math.max(duration-completed,0);
+ var percent=Math.round(completed/duration*100);
+ result.textContent='মোট কোর্সের দিন: '+duration+' | ক্যালেন্ডার অনুযায়ী অতিবাহিত দিন: '+completed+' | বাকি দিন: '+remaining+' | সময়ের হিসাব: '+percent+'%। এটি উপস্থিতির প্রমাণ নয়।';
+}
+
+function demoLogin(){
+ var email=document.getElementById('loginEmail').value.trim();
+ var password=document.getElementById('loginPassword').value;
+ var result=document.getElementById('loginResult');
+ result.classList.remove('hidden');
+ if(!email||!password){result.textContent='ইমেইল ও পাসওয়ার্ডের ঘর পূরণ করুন।';return;}
+ result.textContent='এটি শুধু ডেমো। বাস্তব লগইন চালু নেই; আপনার পাসওয়ার্ড কোথাও পাঠানো বা সংরক্ষণ করা হয়নি।';
+ document.getElementById('profileName').textContent=email.split('@')[0];
+ document.getElementById('profileEmail').textContent='ইমেইল: '+email;
+}
+
+function checkCertificate(){
+ var number=document.getElementById('certificateNumber').value.trim();
+ var result=document.getElementById('certificateResult');
+ result.classList.remove('hidden');
+ if(!number){result.textContent='সার্টিফিকেট নম্বর লিখুন।';return;}
+ result.textContent='এই ডেমোতে কোনো সার্টিফিকেট ডেটাবেস নেই। নম্বরটি যাচাই করা সম্ভব নয়। অনুগ্রহ করে Admin Email-এ যোগাযোগ করুন: bharatskill48@gmail.com';
+}
+
+function copyEmail(){
+ var result=document.getElementById('copyResult');
+ if(navigator.clipboard&&navigator.clipboard.writeText){
+  navigator.clipboard.writeText('bharatskill48@gmail.com').then(function(){
+   result.textContent='ইমেইল কপি হয়েছে।';
+  }).catch(function(){
+   result.textContent='ইমেইল: bharatskill48@gmail.com';
+  });
+ }else{
+  result.textContent='ইমেইল: bharatskill48@gmail.com';
+ }
+}
+</script>
+</body>
+</html>
