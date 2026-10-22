@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#123d80">
+<title>SKILL BHARAT</title>
+<style>
+:root{--navy:#123d80;--blue:#2164c5;--gold:#f2b544;--ink:#17253d;--muted:#65748b;--bg:#f4f7fc;--line:#e2e9f3}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--ink)}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer;border:0;border-radius:10px;padding:11px 14px;font-weight:bold}
+button:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #8bb8ff;outline-offset:2px}
+.primary{background:var(--navy);color:white}.outline{background:white;color:var(--navy);border:1px solid var(--line)}
+header{background:linear-gradient(120deg,#102e62,#2164c5);color:white;padding:20px 16px}
+.wrap,main{max-width:1050px;margin:auto}
+.toprow{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.brand{display:flex;align-items:center;gap:12px}.logo{width:46px;height:46px;border-radius:14px;background:white;color:var(--navy);border:3px solid var(--gold);display:grid;place-items:center;font-size:25px;font-weight:bold}
+h1{font-size:22px;margin:0}.tag{font-size:12px;color:#d9e7ff;margin-top:5px}
+.hero{padding:28px 0 8px}.hero h2{font-size:30px;margin:0 0 10px}.hero p{line-height:1.6;color:#e0ebff}
+.hero-actions{display:flex;gap:9px;flex-wrap:wrap}
+main{padding:16px 13px 90px}
+.nav{display:flex;gap:7px;overflow:auto;padding-bottom:12px;scrollbar-width:thin}
+.nav button{white-space:nowrap;background:white;color:var(--muted);border:1px solid var(--line)}
+.nav button.active{background:var(--navy);color:white}
+.page{display:none}.page.active{display:block}
+.sectionhead{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:22px 0 12px}
+.sectionhead h2{font-size:21px;margin:0}.sectionhead p{font-size:13px;color:var(--muted);margin:5px 0}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.card,.formbox{background:white;border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:12px}
+.card h3{margin:8px 0}.card p{font-size:13px;line-height:1.5;color:var(--muted)}
+.iconbox{font-size:24px;background:#eaf1ff;width:45px;height:45px;border-radius:13px;display:grid;place-items:center}
+.duration,.muted{font-size:12px;color:var(--muted)}
+.formbox{max-width:560px;margin:10px auto;padding:20px}
+.formbox>p{font-size:13px;color:var(--muted);line-height:1.5}
+.field{display:block;margin:13px 0}.field span{display:block;font-size:13px;font-weight:bold;margin-bottom:7px}
+.field input,.field textarea,.field select{width:100%;padding:12px;border:1px solid #d7e0ed;border-radius:10px;background:#fbfcff}
+.full{width:100%}.notice{background:#fff8e5;border:1px solid #f4dfab;border-radius:12px;padding:12px;font-size:12px;line-height:1.6;margin:12px 0;color:#76551a}
+.pill{font-size:11px;background:#fff4da;color:#825800;padding:7px 9px;border-radius:20px}
+.course{display:flex;flex-direction:column;gap:8px}.course button{margin-top:auto}
+.post textarea{width:100%;min-height:80px;padding:12px;border:1px solid var(--line);border-radius:10px}
+.postitem{border-top:1px solid var(--line);padding:12px 0;overflow-wrap:anywhere}
+.foot{text-align:center;color:var(--muted);font-size:11px;padding:20px}
+.mobilebar{display:none}
+@media(max-width:680px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero h2{font-size:26px}.toprow{align-items:flex-start}.mobilebar{display:flex;position:fixed;bottom:0;left:0;right:0;background:white;border-top:1px solid var(--line);justify-content:space-around;padding:7px 2px;z-index:10;box-shadow:0 -3px 12px #0000000a}.mobilebar button{background:white;color:var(--muted);font-size:10px;padding:6px 4px;min-width:0}.mobilebar button.active{color:var(--navy)}}
+@media(max-width:380px){.grid{grid-template-columns:1fr}.hero h2{font-size:23px}}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap">
+  <div class="toprow">
+   <div class="brand"><div class="logo">S</div><div><h1>SKILL BHARAT</h1><div class="tag">LEARN • GROW • BUILD</div></div></div>
+   <button class="outline" onclick="showPage('settings')" data-t="settings">⚙️ Settings</button>
+  </div>
+  <div class="hero">
+   <h2 data-t="hero">Build your skills.<br>Shape your future.</h2>
+   <p data-t="heroText">A learning community for students, courses and skill development.</p>
+   <div class="hero-actions"><button class="outline" onclick="showPage('courses')" data-t="explore">Explore Courses</button><button class="primary" style="background:#f2b544;color:#182b4b" onclick="showPage('admission')" data-t="apply">Apply for Admission</button></div>
+  </div>
+ </div>
+</header>
+<main>
+<nav class="nav" aria-label="Main navigation">
+ <button class="active" data-page="home" onclick="showPage('home')" data-t="home">🏠 Home</button>
+ <button data-page="courses" onclick="showPage('courses')" data-t="courses">📚 Courses</button>
+ <button data-page="admission" onclick="showPage('admission')" data-t="admission">📝 Admission</button>
+ <button data-page="community" onclick="showPage('community')" data-t="community">💬 Community</button>
+ <button data-page="profile" onclick="showPage('profile')" data-t="profile">👤 Profile</button>
+ <button data-page="certificate" onclick="showPage('certificate')" data-t="certificate">🎓 Certificate</button>
+ <button data-page="login" onclick="showPage('login')" data-t="login">🔐 Login</button>
+ <button data-page="admin" onclick="showPage('admin')" data-t="admin">🛡️ Admin</button>
+ <button data-page="settings" onclick="showPage('settings')" data-t="settings">⚙️ Settings</button>
+ <button data-page="help" onclick="showPage('help')" data-t="help">❓ Help & Support</button>
+</nav>
+<section id="home" class="page active">
+ <div class="sectionhead"><div><h2 data-t="welcome">Welcome to SKILL BHARAT</h2><p data-t="welcomeText">Learn practical skills and track your progress.</p></div><span class="pill" data-t="studentCommunity">STUDENT COMMUNITY</span></div>
+ <div class="grid">
+  <article class="card"><div class="iconbox">📚</div><h3 data-t="career">Career-focused Courses</h3><p data-t="careerText">Explore 6-month, 1-year and 2-year training programs.</p><button class="primary" onclick="showPage('courses')" data-t="viewCourses">View courses</button></article>
+  <article class="card"><div class="iconbox">📝</div><h3 data-t="onlineAdmission">Online Admission</h3><p data-t="onlineText">Send an admission enquiry.</p><button class="primary" onclick="showPage('admission')" data-t="applyNow">Apply now</button></article>
+  <article class="card"><div class="iconbox">🎓</div><h3 data-t="courseProgress">Course Progress</h3><p data-t="progressText">View your learning progress.</p><button class="primary" onclick="showPage('profile')" data-t="myProgress">My progress</button></article>
+ </div>
+ <div class="sectionhead"><div><h2 data-t="featured">Featured Courses</h2><p data-t="choosePath">Choose a course that fits your goals.</p></div></div><div class="grid" id="featured"></div>
+ <div class="notice" data-t="prototypeNotice">Prototype notice: real login, online records and official certificate verification are not connected.</div>
+</section>
+<section id="courses" class="page"><div class="sectionhead"><div><h2 data-t="coursesTitle">Courses</h2><p data-t="courseInfo">All courses are free.</p></div></div><div class="grid" id="allcourses"></div><div class="notice" data-t="freeNotice">All courses and admission enquiries are free. This website does not imply government recognition.</div></section>
+<section id="admission" class="page"><div class="formbox"><h2 data-t="admissionTitle">Admission Enquiry</h2><p data-t="admissionInfo">Fill in your details. This demo does not send information to a server.</p>
+<form id="admissionForm"><label class="field"><span data-t="fullName">Full name</span><input required name="name" autocomplete="name" placeholder="Full name"></label><label class="field"><span data-t="email">Email address</span><input required type="email" name="email" autocomplete="email" placeholder="you@example.com"></label><label class="field"><span data-t="selectCourse">Select course</span><select name="course"><option>Electrical Basics — 180 days</option><option>Electrician Training — 365 days</option><option>Electrical Technician — 730 days</option></select></label><label class="field"><span data-t="message">Message (optional)</span><textarea name="message"></textarea></label><button class="primary full" type="submit" data-t="submit">Submit enquiry</button><p id="admissionMsg" class="muted" aria-live="polite"></p></form></div></section>
+<section id="community" class="page"><div class="sectionhead"><div><h2 data-t="communityTitle">Student Community</h2><p data-t="communityInfo">Share a learning update on this device.</p></div></div><div class="card post"><textarea id="postText" data-ph="postPlaceholder" placeholder="What are you learning today?"></textarea><p><button class="primary" onclick="addPost()" data-t="share">Share update</button></p><div id="posts"></div><p class="muted" data-t="localPosts">Demo posts are visible only in this browser.</p></div></section>
+<section id="profile" class="page"><div class="sectionhead"><div><h2 data-t="profileTitle">Student Profile</h2><p data-t="profileInfo">Your learning overview.</p></div></div><div class="card"><div class="iconbox">👤</div><h3 id="profileName">Guest Student</h3><p id="profileEmail">Not logged in</p><hr><p data-t="profileDemo">Your profile will display your course information when a secure account system is connected.</p></div></section>
+<section id="certificate" class="page"><div class="formbox"><h2 data-t="certTitle">Certificate Lookup</h2><p data-t="certInfo">Enter a certificate ID to check a record.</p><label class="field"><span data-t="certID">Certificate ID</span><input id="certId" placeholder="Example: SB-2026-0001"></label><button class="primary full" onclick="checkCertificate()" data-t="check">Check</button><div id="certResult" aria-live="polite"></div><div class="notice" data-t="certNotice">No official certificate database is connected.</div></div></section>
+<section id="login" class="page"><div class="formbox"><h2 data-t="loginTitle">Login / Sign up</h2><p data-t="loginInfo">This is a demo screen. Do not enter your real password.</p><label class="field"><span data-t="email">Email address</span><input type="email" id="emailDemo" placeholder="you@example.com"></label><button class="primary full" onclick="demoLogin()" data-t="preview">Preview profile</button><p id="loginMsg" class="muted" aria-live="polite"></p><div class="notice" data-t="loginNotice">Real secure login requires an authentication service.</div></div></section>
+<section id="admin" class="page"><div class="sectionhead"><div><h2 data-t="adminTitle">Admin Area</h2><p data-t="adminInfo">For authorized administrators.</p></div></div><div class="card"><div class="iconbox">🛡️</div><h3 data-t="adminCard">Course and certificate administration</h3><p data-t="adminNotice">This is a placeholder. Secure server-side permissions are required for real administration.</p></div></section>
+<section id="settings" class="page"><div class="formbox"><h2 data-t="settingsTitle">Settings</h2><p data-t="settingsInfo">Choose your preferred language.</p><label class="field"><span data-t="language">Language / ভাষা / भाषा</span><select id="languageSelect" onchange="setLanguage(this.value)"><option value="en">🇬🇧 English</option><option value="bn">🇧🇩 বাংলা (Bengali)</option><option value="hi">🇮🇳 हिन्दी (Hindi)</option></select></label><p class="muted" data-t="languageSaved">Your language choice will be saved on this device.</p></div></section>
+<section id="help" class="page"><div class="formbox"><h2 data-t="helpTitle">Help &amp; Support</h2><p data-t="helpInfo">For course, admission, certificate or website problems, email our support team.</p><p><b>Email:</b> <a href="mailto:bharatskill48@gmail.com">bharatskill48@gmail.com</a></p><div class="notice" data-t="helpNotice">This website is a demo. Admission enquiries are not sent to a server yet.</div></div></section>
+<div class="foot">SKILL BHARAT · <span data-t="footerNote">Learning demo website. Not an official government portal.</span></div>
+</main>
+<nav class="mobilebar" aria-label="Mobile navigation">
+ <button onclick="showPage('home')" data-mobile="home">🏠<br>Home</button>
+ <button onclick="showPage('courses')" data-mobile="courses">📚<br>Courses</button>
+ <button onclick="showPage('admission')" data-mobile="admission">📝<br>Admission</button>
+ <button onclick="showPage('settings')" data-mobile="settings">⚙️<br>Settings</button>
+ <button onclick="showPage('help')" data-mobile="help">❓<br>Help</button>
+</nav>
+<script>
+const courses=[
+ {icon:"⚡",name:{en:"Electrical Basics",bn:"ইলেকট্রিক্যাল বেসিকস",hi:"इलेक्ट्रिकल बेसिक्स"},days:180,desc:{en:"Introduction to electrical safety and basic concepts.",bn:"বৈদ্যুতিক নিরাপত্তা ও প্রাথমিক ধারণা।",hi:"विद्युत सुरक्षा और बुनियादी जानकारी।"}},
+ {icon:"🧰",name:{en:"Electrician Training",bn:"ইলেকট্রিশিয়ান প্রশিক্ষণ",hi:"इलेक्ट्रीशियन प्रशिक्षण"},days:365,desc:{en:"A learning pathway covering common electrician skills.",bn:"ইলেকট্রিশিয়ানের সাধারণ দক্ষতা শেখার কোর্স।",hi:"इलेक्ट्रीशियन के सामान्य कौशल सीखने का पाठ्यक्रम।"}},
+ {icon:"🔌",name:{en:"Electrical Technician",bn:"ইলেকট্রিক্যাল টেকনিশিয়ান",hi:"इलेक्ट्रिकल तकनीशियन"},days:730,desc:{en:"Extended study of electrical systems and maintenance.",bn:"বৈদ্যুতিক সিস্টেম ও রক্ষণাবেক্ষণের বিস্তৃত শিক্ষা।",hi:"विद्युत प्रणालियों और रखरखाव का विस्तृत अध्ययन।"}}
+];
+const words={
+en:{settings:"⚙️ Settings",hero:"Build your skills.<br>Shape your future.",heroText:"A learning community for students, courses and skill development.",explore:"Explore Courses",apply:"Apply for Admission",home:"🏠 Home",courses:"📚 Courses",admission:"📝 Admission",community:"💬 Community",profile:"👤 Profile",certificate:"🎓 Certificate",login:"🔐 Login",admin:"🛡️ Admin",help:"❓ Help & Support",welcome:"Welcome to SKILL BHARAT",welcomeText:"Learn practical skills and track your progress.",studentCommunity:"STUDENT COMMUNITY",career:"Career-focused Courses",careerText:"Explore 6-month, 1-year and 2-year training programs.",viewCourses:"View courses",onlineAdmission:"Online Admission",onlineText:"Send an admission enquiry.",applyNow:"Apply now",courseProgress:"Course Progress",progressText:"View your learning progress.",myProgress:"My progress",featured:"Featured Courses",choosePath:"Choose a course that fits your goals.",prototypeNotice:"Prototype notice: real login, online records and official certificate verification are not connected.",coursesTitle:"Courses",courseInfo:"All courses are free.",freeNotice:"All courses and admission enquiries are free. This website does not imply government recognition.",admissionTitle:"Admission Enquiry",admissionInfo:"Fill in your details. This demo does not send information to a server.",fullName:"Full name",email:"Email address",selectCourse:"Select course",message:"Message (optional)",submit:"Submit enquiry",communityTitle:"Student Community",communityInfo:"Share a learning update on this device.",postPlaceholder:"What are you learning today?",share:"Share update",localPosts:"Demo posts are visible only in this browser.",profileTitle:"Student Profile",profileInfo:"Your learning overview.",profileDemo:"Your profile will display your course information when a secure account system is connected.",certTitle:"Certificate Lookup",certInfo:"Enter a certificate ID to check a record.",certID:"Certificate ID",check:"Check",certNotice:"No official certificate database is connected.",loginTitle:"Login / Sign up",loginInfo:"This is a demo screen. Do not enter your real password.",preview:"Preview profile",loginNotice:"Real secure login requires an authentication service.",adminTitle:"Admin Area",adminInfo:"For authorized administrators.",adminCard:"Course and certificate administration",adminNotice:"This is a placeholder. Secure server-side permissions are required for real administration.",settingsTitle:"Settings",settingsInfo:"Choose your preferred language.",language:"Language / ভাষা / भाषा",languageSaved:"Your language choice will be saved on this device.",helpTitle:"Help & Support",helpInfo:"For course, admission, certificate or website problems, email our support team.",helpNotice:"This website is a demo. Admission enquiries are not sent to a server yet.",footerNote:"Learning demo website. Not an official government portal.",free:"FREE • ₹0",days:"days",select:"Select course",enquirySaved:"Demo only: your enquiry was not sent. Please email support if you need help.",postEmpty:"Please write an update first.",certMissing:"No official certificate database is connected, so this ID cannot be verified here.",profilePreview:"Demo profile preview updated."},
+bn:{settings:"⚙️ সেটিংস",hero:"দক্ষতা গড়ুন।<br>ভবিষ্যৎ গড়ুন।",heroText:"শিক্ষার্থী, কোর্স ও দক্ষতা উন্নয়নের জন্য একটি শিক্ষামূলক কমিউনিটি।",explore:"কোর্স দেখুন",apply:"ভর্তির আবেদন",home:"🏠 হোম",courses:"📚 কোর্স",admission:"📝 ভর্তি",community:"💬 কমিউনিটি",profile:"👤 প্রোফাইল",certificate:"🎓 সার্টিফিকেট",login:"🔐 লগইন",admin:"🛡️ অ্যাডমিন",help:"❓ সাহায্য",welcome:"SKILL BHARAT-এ স্বাগতম",welcomeText:"ব্যবহারিক দক্ষতা শিখুন এবং অগ্রগতি দেখুন।",studentCommunity:"শিক্ষার্থী কমিউনিটি",career:"ক্যারিয়ারভিত্তিক কোর্স",careerText:"৬ মাস, ১ বছর ও ২ বছরের প্রশিক্ষণ প্রোগ্রাম দেখুন।",viewCourses:"কোর্স দেখুন",onlineAdmission:"অনলাইন ভর্তি",onlineText:"ভর্তির বিষয়ে জিজ্ঞাসা পাঠান।",applyNow:"এখনই আবেদন",courseProgress:"কোর্সের অগ্রগতি",progressText:"আপনার শেখার অগ্রগতি দেখুন।",myProgress:"আমার অগ্রগতি",featured:"বিশেষ কোর্স",choosePath:"আপনার লক্ষ্যের উপযুক্ত কোর্স বেছে নিন।",prototypeNotice:"ডেমো: প্রকৃত লগইন, অনলাইন রেকর্ড ও সরকারি সার্টিফিকেট যাচাই সংযুক্ত নয়।",coursesTitle:"কোর্সসমূহ",courseInfo:"সব কোর্স বিনামূল্যে।",freeNotice:"সব কোর্স ও ভর্তি অনুসন্ধান বিনামূল্যে। এই ওয়েবসাইট সরকারি স্বীকৃতির দাবি করে না।",admissionTitle:"ভর্তির অনুসন্ধান",admissionInfo:"তথ্য পূরণ করুন। এই ডেমো তথ্য সার্ভারে পাঠায় না।",fullName:"পুরো নাম",email:"ইমেল ঠিকানা",selectCourse:"কোর্স বেছে নিন",message:"বার্তা (ঐচ্ছিক)",submit:"অনুসন্ধান জমা দিন",communityTitle:"শিক্ষার্থী কমিউনিটি",communityInfo:"এই ডিভাইসে শেখার আপডেট শেয়ার করুন।",postPlaceholder:"আজ কী শিখছেন?",share:"আপডেট শেয়ার করুন",localPosts:"ডেমো পোস্ট শুধু এই ব্রাউজারে দেখা যায়।",profileTitle:"শিক্ষার্থী প্রোফাইল",profileInfo:"আপনার শেখার বিবরণ।",profileDemo:"নিরাপদ অ্যাকাউন্ট ব্যবস্থা যুক্ত হলে এখানে কোর্সের তথ্য দেখা যাবে।",certTitle:"সার্টিফিকেট খোঁজ",certInfo:"রেকর্ড দেখতে সার্টিফিকেট আইডি লিখুন।",certID:"সার্টিফিকেট আইডি",check:"যাচাই",certNotice:"কোনো সরকারি সার্টিফিকেট ডেটাবেস সংযুক্ত নেই।",loginTitle:"লগইন / সাইন আপ",loginInfo:"এটি ডেমো। আসল পাসওয়ার্ড দেবেন না।",preview:"প্রোফাইলের প্রিভিউ",loginNotice:"নিরাপদ লগইনের জন্য অথেনটিকেশন পরিষেবা প্রয়োজন।",adminTitle:"অ্যাডমিন এলাকা",adminInfo:"অনুমোদিত অ্যাডমিনদের জন্য।",adminCard:"কোর্স ও সার্টিফিকেট পরিচালনা",adminNotice:"এটি শুধু নমুনা। প্রকৃত অ্যাডমিন ব্যবস্থার জন্য নিরাপদ সার্ভার অনুমতি দরকার।",settingsTitle:"সেটিংস",settingsInfo:"আপনার পছন্দের ভাষা বেছে নিন।",language:"ভাষা / Language",languageSaved:"আপনার ভাষা এই ডিভাইসে সংরক্ষিত হবে।",helpTitle:"সাহায্য ও সহায়তা",helpInfo:"কোর্স, ভর্তি, সার্টিফিকেট বা ওয়েবসাইটের সমস্যায় ইমেল করুন।",helpNotice:"এটি ডেমো ওয়েবসাইট। ভর্তি অনুসন্ধান এখনও সার্ভারে পাঠানো হয় না।",footerNote:"শিক্ষামূলক ডেমো ওয়েবসাইট। সরকারি পোর্টাল নয়।",free:"বিনামূল্যে • ₹০",days:"দিন",select:"কোর্স বেছে নিন",enquirySaved:"এটি ডেমো: আপনার অনুসন্ধান পাঠানো হয়নি। সাহায্যের জন্য সাপোর্টে ইমেল করুন।",postEmpty:"আগে একটি আপডেট লিখুন।",certMissing:"সরকারি সার্টিফিকেট ডেটাবেস সংযুক্ত নেই, তাই এখানে এই আইডি যাচাই করা যাবে না।",profilePreview:"ডেমো প্রোফাইল আপডেট হয়েছে।"},
+hi:{settings:"⚙️ सेटिंग्स",hero:"अपने कौशल बढ़ाएँ।<br>अपना भविष्य बनाएँ।",heroText:"विद्यार्थियों, पाठ्यक्रमों और कौशल विकास के लिए सीखने का समुदाय।",explore:"कोर्स देखें",apply:"प्रवेश के लिए आवेदन",home:"🏠 होम",courses:"📚 कोर्स",admission:"📝 प्रवेश",community:"💬 समुदाय",profile:"👤 प्रोफ़ाइल",certificate:"🎓 प्रमाणपत्र",login:"🔐 लॉगिन",admin:"🛡️ एडमिन",help:"❓ सहायता",welcome:"SKILL BHARAT में आपका स्वागत है",welcomeText:"व्यावहारिक कौशल सीखें और अपनी प्रगति देखें।",studentCommunity:"विद्यार्थी समुदाय",career:"करियर-केंद्रित कोर्स",careerText:"6 महीने, 1 साल और 2 साल के प्रशिक्षण कार्यक्रम देखें।",viewCourses:"कोर्स देखें",onlineAdmission:"ऑनलाइन प्रवेश",onlineText:"प्रवेश के लिए पूछताछ भेजें।",applyNow:"अभी आवेदन करें",courseProgress:"कोर्स की प्रगति",progressText:"अपनी सीखने की प्रगति देखें।",myProgress:"मेरी प्रगति",featured:"विशेष कोर्स",choosePath:"अपने लक्ष्य के अनुसार कोर्स चुनें।",prototypeNotice:"डेमो: वास्तविक लॉगिन, ऑनलाइन रिकॉर्ड और आधिकारिक प्रमाणपत्र सत्यापन जुड़ा नहीं है।",coursesTitle:"कोर्स",courseInfo:"सभी कोर्स मुफ्त हैं।",freeNotice:"सभी कोर्स और प्रवेश पूछताछ मुफ्त हैं। यह वेबसाइट सरकारी मान्यता का दावा नहीं करती।",admissionTitle:"प्रवेश पूछताछ",admissionInfo:"अपनी जानकारी भरें। यह डेमो जानकारी सर्वर पर नहीं भेजता।",fullName:"पूरा नाम",email:"ईमेल पता",selectCourse:"कोर्स चुनें",message:"संदेश (वैकल्पिक)",submit:"पूछताछ जमा करें",communityTitle:"विद्यार्थी समुदाय",communityInfo:"इस डिवाइस पर सीखने का अपडेट साझा करें।",postPlaceholder:"आज आप क्या सीख रहे हैं?",share:"अपडेट साझा करें",localPosts:"डेमो पोस्ट केवल इसी ब्राउज़र में दिखती हैं।",profileTitle:"विद्यार्थी प्रोफ़ाइल",profileInfo:"आपकी सीखने की जानकारी।",profileDemo:"सुरक्षित अकाउंट सिस्टम जुड़ने पर आपकी कोर्स जानकारी यहाँ दिखेगी।",certTitle:"प्रमाणपत्र खोज",certInfo:"रिकॉर्ड देखने के लिए प्रमाणपत्र आईडी डालें।",certID:"प्रमाणपत्र आईडी",check:"जाँचें",certNotice:"कोई आधिकारिक प्रमाणपत्र डेटाबेस जुड़ा नहीं है।",loginTitle:"लॉगिन / साइन अप",loginInfo:"यह डेमो स्क्रीन है। अपना असली पासवर्ड न डालें।",preview:"प्रोफ़ाइल पूर्वावलोकन",loginNotice:"सुरक्षित लॉगिन के लिए प्रमाणीकरण सेवा चाहिए।",adminTitle:"एडमिन क्षेत्र",adminInfo:"अधिकृत एडमिन के लिए।",adminCard:"कोर्स और प्रमाणपत्र प्रबंधन",adminNotice:"यह केवल नमूना है। वास्तविक एडमिन के लिए सुरक्षित सर्वर अनुमति चाहिए।",settingsTitle:"सेटिंग्स",settingsInfo:"अपनी पसंद की भाषा चुनें।",language:"भाषा / Language",languageSaved:"आपकी भाषा इस डिवाइस पर सहेजी जाएगी।",helpTitle:"सहायता और समर्थन",helpInfo:"कोर्स, प्रवेश, प्रमाणपत्र या वेबसाइट की समस्या के लिए ईमेल करें।",helpNotice:"यह डेमो वेबसाइट है। प्रवेश पूछताछ अभी सर्वर पर नहीं भेजी जाती।",footerNote:"सीखने के लिए डेमो वेबसाइट। आधिकारिक सरकारी पोर्टल नहीं।",free:"मुफ्त • ₹0",days:"दिन",select:"कोर्स चुनें",enquirySaved:"केवल डेमो: आपकी पूछताछ भेजी नहीं गई। मदद के लिए सपोर्ट को ईमेल करें।",postEmpty:"पहले एक अपडेट लिखें।",certMissing:"आधिकारिक प्रमाणपत्र डेटाबेस जुड़ा नहीं है, इसलिए यहाँ इस आईडी की पुष्टि नहीं हो सकती।",profilePreview:"डेमो प्रोफ़ाइल अपडेट हो गई।"}
+};
+let currentLang="en";
+function showPage(pageId){
+ const target=document.getElementById(pageId);
+ if(!target || !target.classList.contains("page")) return;
+ document.querySelectorAll(".page").forEach(p=>p.classList.toggle("active",p.id===pageId));
+ document.querySelectorAll(".nav button[data-page]").forEach(b=>b.classList.toggle("active",b.dataset.page===pageId));
+ document.querySelectorAll(".mobilebar button[data-mobile]").forEach(b=>b.classList.toggle("active",b.dataset.mobile===pageId));
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+function setLanguage(lang){
+ if(!words[lang]) lang="en";
+ currentLang=lang;
+ document.documentElement.lang=lang==="bn"?"bn":lang==="hi"?"hi":"en";
+ document.querySelectorAll("[data-t]").forEach(el=>{
+  const key=el.dataset.t;
+  if(words[lang][key]!==undefined) el.innerHTML=words[lang][key];
+ });
+ document.querySelectorAll("[data-ph]").forEach(el=>{
+  const key=el.dataset.ph;
+  if(words[lang][key]!==undefined) el.placeholder=words[lang][key];
+ });
+ const selector=document.getElementById("languageSelect");
+ if(selector) selector.value=lang;
+ try{localStorage.setItem("skillBharatLanguage",lang)}catch(e){}
+ renderCourses();
+}
+function renderCourses(){
+ const lang=currentLang;
+ const cards=courses.map(c=>`<article class="card course"><div class="iconbox">${c.icon}</div><h3>${c.name[lang]}</h3><p>${c.desc[lang]}</p><div class="duration">${c.days} ${words[lang].days} · ${words[lang].free}</div><button class="primary" onclick="showPage('admission')">${words[lang].apply}</button></article>`).join("");
+ document.getElementById("featured").innerHTML=cards;
+ document.getElementById("allcourses").innerHTML=cards;
+ const select=document.querySelector('#admissionForm select[name="course"]');
+ if(select){const old=select.value;select.innerHTML=courses.map(c=>`<option value="${c.name.en}">${c.name[lang]} — ${c.days} ${words[lang].days}</option>`).join("");if(courses.some(c=>c.name.en===old))select.value=old;}
+}
+function demoLogin(){
+ const email=document.getElementById("emailDemo").value.trim();
+ const msg=document.getElementById("loginMsg");
+ if(email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msg.textContent="Please enter a valid email address.";return;}
+ document.getElementById("profileName").textContent=email?email.split("@")[0]:"Guest Student";
+ document.getElementById("profileEmail").textContent=email||"Not logged in";
+ msg.textContent=words[currentLang].profilePreview;
+}
+function addPost(){
+ const input=document.getElementById("postText");
+ const text=input.value.trim();
+ if(!text){alert(words[currentLang].postEmpty);return;}
+ const item=document.createElement("div");item.className="postitem";
+ const p=document.createElement("p");p.textContent=text;
+ item.appendChild(p);
+ document.getElementById("posts").prepend(item);
+ input.value="";
+ try{const saved=JSON.parse(localStorage.getItem("skillBharatPosts")||"[]");saved.unshift(text);localStorage.setItem("skillBharatPosts",JSON.stringify(saved.slice(0,30)))}catch(e){}
+}
+function loadPosts(){
+ try{const saved=JSON.parse(localStorage.getItem("skillBharatPosts")||"[]");saved.forEach(text=>{const item=document.createElement("div");item.className="postitem";const p=document.createElement("p");p.textContent=text;item.appendChild(p);document.getElementById("posts").appendChild(item)})}catch(e){}
+}
+function checkCertificate(){
+ const id=document.getElementById("certId").value.trim();
+ const box=document.getElementById("certResult");box.textContent="";
+ const p=document.createElement("p");p.className="notice";p.textContent=id?words[currentLang].certMissing:"Please enter a certificate ID.";box.appendChild(p);
+}
+document.getElementById("admissionForm").addEventListener("submit",function(e){
+ e.preventDefault();document.getElementById("admissionMsg").textContent=words[currentLang].enquirySaved;this.reset();
+});
+try{currentLang=localStorage.getItem("skillBharatLanguage")||"en"}catch(e){currentLang="en"}
+if(!words[currentLang])currentLang="en";
+setLanguage(currentLang);
+loadPosts();
+</script>
+</body>
+</html>
